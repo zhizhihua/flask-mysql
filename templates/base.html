@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    {% block head %}{% endblock %}
+    {#    url_for 老是忘记写，真的难受#}
+    {#    filename 是指定对应的static文件下的bootstrap文件夹里面的bootstrap@4.6.min.css文件#}
+    <link rel="stylesheet" href="{{ url_for('static',filename='bootstrap/bootstrap@4.6.min.css') }}">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <div class="spinner-grow text-dark  mr-5">
+           <a class="navbar-brand" href="#"><h4>🚀稚至花</h4></a>
+        </div>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse ml-4" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto ml-4">
+                <li class="nav-item active">
+                    <a class="nav-link ml-7" href="/">首页</a>
+                </li>
+                <li class="nav-item ml-4">
+{#                    访问answer视图下的public_question html文件#}
+                    <a class="nav-link" href="{{ url_for('answer.public_question') }}">发布帖子</a>
+                </li>
+                <li class="nav-item ml-5">
+                    <form class="form-inline my-2 my-lg-0 ml-8">
+                        <input class="form-control mr-sm-2" type="search" placeholder="输入关键词🖊" aria-label="搜索🔍">
+                        <button class="btn btn-outline-success my-2 my-sm-0 ml-2" type="submit">Search🔍</button>
+                    </form>
+                </li>
+
+            </ul>
+            <ul class="navbar-nav mr-auto">
+{#            登录情况下显示对应的账号名和注销#}
+                {% if  user %}
+                    <li class="nav-item active">
+                        <span class ='nav-link'>{{user.username}}</span>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="{{ url_for('user.logout')}}">注销</a>
+                    </li>
+
+{#                    没登录的情况下显示登录注册#}
+                {% else %}
+                    <li class="nav-item active">
+                        <a class="nav-link ml-4" href="{{ url_for('user.register')}}">注册</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="{{ url_for('user.login')}}">登录</a>
+                    </li>
+                
+                {% endif %} 
+
+
+            </ul>
+
+        </div>
+    </div>
+</nav>
+{% block body %}{% endblock %}
+</body>
+</html>

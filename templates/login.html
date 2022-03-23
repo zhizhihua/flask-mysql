@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    🚀稚至花
+{% endblock %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block  body %}
+
+    <form METHOD="post" ACTION="{{ url_for('user.login') }}">>
+
+        <div class="row mt-5">
+            <div class="col-sm">
+
+            </div>
+            <div class="col-sm">
+                <div class="form-group">
+
+                    <label for="exampleInputEmail1">邮箱</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                           name="email">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                        else.</small>
+
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">密码</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+                </div>
+                {#                <div class="form-group form-check">#}
+                {#                    <input type="checkbox" class="form-check-input" id="exampleCheck1">#}
+                {#                    <label class="form-check-label" for="exampleCheck1">Check me out</label>#}
+                {#                </div>#}
+                {% for message in get_flashed_messages() %}
+                    <div class="form-group">
+                    <div class="text-danger">{{message}}</div>
+
+                    </div>
+
+                {% endfor %}
+
+                <div class="form-group">
+
+                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                </div>
+
+
+            </div>
+            <div class="col-sm">
+
+            </div>
+        </div>
+        </div>
+
+    </form>
+
+
+{% endblock %}

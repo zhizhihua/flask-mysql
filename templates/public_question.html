@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+🚀稚至花
+{% endblock %}
+
+{% block body %}
+    <div class="row" style="margin-top:  26px;">
+    <div class="col"></div>
+        <div class="col-8">
+            <form action="{{ url_for('answer.public_question') }}" method="post">
+
+                <div class="form-group">
+                    <input type="text",name ='title'  class="form-control" placeholder="输入标题">
+                </div>
+                <div class="form-group">
+                    <textarea name="content" id="questions" class="form-control"  rows="10" placeholder="请输入内容~~"></textarea>
+                </div>
+                <div class="form-group">
+
+                        <button type="submit" class="btn btn-primary btn-block">发布问答</button>
+                </div>
+
+            </form>
+        </div>
+    <div class="col"></div>
+
+    </div>
+
+
+{% endblock %}

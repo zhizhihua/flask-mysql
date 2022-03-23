@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    🚀稚至花
+{% endblock %}
+
+{% block head %}
+    <script src="{{url_for('static',filename='jquery/jquery.3.6.min.js')}}"></script>
+    <script src="{{url_for('static',filename='js/register.js')}}"></script>
+{% endblock %}
+
+{% block  body %}
+{#    meehod 是表示请求的方法， action是表示你要把下面的输入的数据请求的内容发送到哪个页面，user表示的是蓝图的url_prefix 的地址#}
+    <form METHOD="post" ACTION="{{ url_for('user.register')}}">
+
+        <div class="row mt-5">
+            <div class="col-sm">
+
+            </div>
+            <div class="col-sm">
+                <div class="form-group">
+
+                    <label for="exampleInputEmail1">邮箱</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                        else.</small>
+
+                </div>
+                <div class="form-group">
+
+                    <label for="exampleInputEmail1">验证码</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="captcha">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" id ='captcha-btn'>获取验证码</button>
+                        </div>
+                    </div>
+                <div class="form-group">
+
+                    <label for="exampleInputEmail1">用户名</label>
+                    <input type="text"  class="form-control" name="username">
+
+                </div>
+
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">密码</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">再次确认密码</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" name="password_confirm">
+                </div>
+                {#                <div class="form-group form-check">#}
+                {#                    <input type="checkbox" class="form-check-input" id="exampleCheck1">#}
+                {#                    <label class="form-check-label" for="exampleCheck1">Check me out</label>#}
+                {#                </div>#}
+                <button type="submit" class="btn btn-primary btn-block">Submit</button>
+
+            </div>
+            <div class="col-sm">
+
+            </div>
+        </div>
+        </div>
+
+    </form>
+
+{% endblock %}
