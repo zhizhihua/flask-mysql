@@ -1,4 +1,4 @@
-# flaskcookiesession
+# 简单的问答贴吧flask项目
 简单的问答贴吧flask项目
 1.Flask项目底层框架搭建 
 2.通过Flask的orm映射功能控制Mysql数据库数据增删改查
